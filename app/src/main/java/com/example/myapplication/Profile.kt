@@ -93,19 +93,19 @@ class Profile : AppCompatActivity() {
         }
 
     private fun logout() {
-        builder.setTitle("Đăng xuất")
-            .setMessage("Bạn có chắc chắn muốn đăng xuất?")
+        builder.setTitle("LogOut")
+            .setMessage("Do you want to LogOut this session")
             .setCancelable(true) // dialog box in cancellable
             // set positive button
             //take two parameters dialogInterface and an int
-            .setPositiveButton("Có"){dialogInterface,it ->
+            .setPositiveButton("Yes"){dialogInterface,it ->
                 FirebaseAuth.getInstance().signOut()
 
                 val intent = Intent(this, logIn::class.java)
                 startActivity(intent)
                 finish()
             }
-        builder.setNegativeButton("Không") { dialog, which ->
+        builder.setNegativeButton("No") { dialog, which ->
             dialog.cancel()
         }
             // show the builder

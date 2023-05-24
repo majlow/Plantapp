@@ -12,6 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item> // this property will help hide ActionBar
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item> // this property is use for hide StatusBar
     </style>
 
     <style name="LoginTextInputOuterFieldStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">

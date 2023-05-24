@@ -52,7 +52,7 @@ class signUp : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(sEmail, sPassword)
                     .addOnCompleteListener(this) { task ->
                         val progressDialog = ProgressDialog(this)
-                        progressDialog.setMessage("Please wait...")
+                        progressDialog.setMessage("Waiting...")
                         progressDialog.setCancelable(false)
                         progressDialog.show()
                         Handler().postDelayed({progressDialog.dismiss()},4000)
@@ -61,11 +61,11 @@ class signUp : AppCompatActivity() {
                                 ?.addOnSuccessListener {
                                     firebaseUser()
                                     Toast.makeText(
-                                        this, "Đăng ký thành công!",
+                                        this, "Register successful",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                     Toast.makeText(
-                                        this, "Please Verify your email!",
+                                        this, "The email verify was sent to you.",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                     val intent = Intent(this, logIn::class.java)
@@ -80,7 +80,7 @@ class signUp : AppCompatActivity() {
 
                         } else {
                             Toast.makeText(
-                                this, "Tài khoản đã tồn tại!",
+                                this, "Account already exists",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -106,9 +106,9 @@ class signUp : AppCompatActivity() {
 
 
     private fun validatename(): Boolean {
-        val sName= name.text.toString().trim()
-        return if (sName.isEmpty()) {
-            name.setError("Name không được để trống")
+        val nameInput= name.text.toString().trim()
+        return if (nameInput.isEmpty()) {
+            name.setError("Name not empty!")
             false
         }
         else
@@ -120,16 +120,17 @@ class signUp : AppCompatActivity() {
     }
 
     private fun validatePassword(): Boolean {
-        val pass= password.text.toString().trim()
-        //Mật khẩu gồm 11 ký tự, ít nhất một chữ cái viết hoa, một chữ cái viết thường, một số và một ký tự đặc biệt:
-        val passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*([^a-zA-Z\\d\\s])).{11}\$".toRegex()
+        // Pattern password compare
+        val passInput= password.text.toString().trim()
 
-        return if (pass.isEmpty()) {
-            password.setError("Password không được để trống")
+        val passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&+=])(?=\\\\S+\$).{11,}\$".toRegex()
+
+        return if (passInput.isEmpty()) {
+            password.setError("Password not empty!")
             false
         }
-        else if(!pass.matches(passwordPattern)){
-            password.setError("Mật khẩu gồm 11 ký tự, ít nhất một chữ cái viết hoa, một chữ cái viết thường, một số và một ký tự đặc biệt")
+        else if(!passInput.matches(passwordPattern)){
+            password.setError("The password must include 11 char, UPPER, lower, number and special character.")
             false
         }
         else
@@ -140,12 +141,16 @@ class signUp : AppCompatActivity() {
     }
 
     private fun validateemail(): Boolean {
-        val mail= email.text.toString().trim()
-        return if (mail.isEmpty()) {
-            email.setError("Email không được để trống")
+        // Pattern email compare
+        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex();
+
+        val emailInput= email.text.toString().trim()
+
+        return if (emailInput.isEmpty()) {
+            email.setError("Email not empty!")
             false
-        }else if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
-            email.setError("Địa chỉ email không hợp lệ!")
+        }else if(!emailInput.matches(emailPattern)){
+            email.setError("Invalid email address!")
             false
         }
         else
