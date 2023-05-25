@@ -39,7 +39,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="48dp"
-                    android:src="@drawable/img_2" />
+                    android:src="@drawable/icon_app" />
 
                 <TextView
                     android:id="@+id/tvname"
@@ -51,7 +51,7 @@
                     android:layout_marginTop="142dp"
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center"
-                    android:text="Taylor Swift"
+                    android:text="Tuan Anh"
                     android:textColor="@color/white"
                     android:textSize="23dp"
                     android:textStyle="bold" />
@@ -81,7 +81,7 @@
                     android:layout_marginTop="183dp"
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center"
-                    android:text="Vohabaochanh21@gmil.com"
+                    android:text="tuananhzj1@gmail.com"
                     android:textColor="@color/white"
                     android:textSize="14dp" />
             </RelativeLayout>
@@ -108,7 +108,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:text="Your Collected Plants"
+                android:text="Liked ♥"
                 android:textColor="#36455A"
                 android:textSize="17dp"
                 android:textStyle="bold"

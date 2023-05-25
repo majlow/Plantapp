@@ -161,11 +161,32 @@ class Home : AppCompatActivity() {
         val image=findViewById<CircleImageView>(R.id.profile_image)
         val tvname=findViewById<TextView>(R.id.tvname)
         val users = FirebaseAuth.getInstance().currentUser ?: return
-        val name = users.displayName
-        val eemail = users.email
-        val photoUrl: Uri? = users.photoUrl
-        tvname.text = "Hello "+name+","
-        Glide.with(this@Home).load(photoUrl).error(R.drawable.img_2)
+        users?.let {
+            // Name, email address, and profile photo Url
+            val name = it.displayName
+            val eemail = it.email
+            val photoUrl = it.photoUrl
+
+            // Check if user's email is verified
+            val emailVerified = it.isEmailVerified
+
+            // The user's ID, unique to the Firebase project. Do NOT use this value to
+            // authenticate with your backend server, if you have one. Use
+            // FirebaseUser.getIdToken() instead.
+            val uid = it.uid
+
+            if (name == null)
+            {
+                tvname.text = "Hello"
+            }
+            else
+            {
+                tvname.text = "Hello "+name
+            }
+
+
+
+        Glide.with(this@Home).load(photoUrl).error(R.drawable.icon_app)
             .into(image)
         val userRef = FirebaseDatabase.getInstance().getReference("Users")
             .orderByChild("email")
@@ -175,15 +196,15 @@ class Home : AppCompatActivity() {
                 for (ds in dataSnapshot.children) {
                     val user = ds.getValue(userData::class.java)
                     if (user != null) {
-                        tvname.text = "Hello "+user?.fullName+","
-                        Glide.with(this@Home).load(user?.imageAvt).error(R.drawable.img_2)
+                        tvname.text = "Hello "+user?.fullName
+                        Glide.with(this@Home).load(user?.imageAvt).error(R.drawable.icon_app)
                             .into(image)
                     }
                 }
             }
             override fun onCancelled(databaseError: DatabaseError) {
             }
-        })
+        })}
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

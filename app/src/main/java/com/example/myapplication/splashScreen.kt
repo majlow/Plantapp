@@ -31,7 +31,7 @@ class splashScreen : AppCompatActivity() {
             }else{
                 GoToDashboard()
             }
-        },4000)
+        },1000)
     }
 
     private fun GoToDashboard() {
@@ -45,12 +45,10 @@ class splashScreen : AppCompatActivity() {
     private fun netActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         if (user == null) {
-            //chưa login
+            //not login
             val intent = Intent(this, logIn::class.java)
             startActivity(intent)
-
         } else {
-            //đã login
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }

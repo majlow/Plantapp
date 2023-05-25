@@ -16,12 +16,13 @@
         android:layout_marginTop="92dp"
         android:fontFamily="cursive"
         android:gravity="left|center"
-        android:text="Welcome"
+
         android:textColor="#006600"
         android:textSize="60dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Welcome"/>
 
     <TextView
         android:id="@+id/textView4"

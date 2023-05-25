@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/welcome2"
     tools:context=".onboarding.Secondscreen">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="360dp"
         android:layout_height="280dp"
-        android:src="@drawable/f2"
+        android:src="@drawable/giphy_2"
         android:layout_marginTop="30dp"
         android:layout_gravity="top|center"
         />
@@ -17,26 +18,27 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="serif"
+        android:layout_height="261dp"
         android:layout_gravity="top|center"
-        android:text="Learn Many Plants Species"
-        android:textColor="#36455A"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="top"
+        android:text="OPEN YOUR MIND"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="313dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif"
+        android:layout_width="293dp"
+        android:layout_height="89dp"
         android:layout_gravity="top|center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="Let's learn about the many plant species that exist in this world"
-        android:textColor="#495566"
+        android:textColor="@color/white"
         android:textSize="15dp"
-        android:textStyle="normal" />
+        android:textStyle="normal"
+        android:text="Let's learn about the many plant species that exist in this world" />
 
 </LinearLayout>

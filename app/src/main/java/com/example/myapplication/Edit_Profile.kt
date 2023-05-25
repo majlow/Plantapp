@@ -48,18 +48,18 @@ class Edit_Profile : AppCompatActivity() {
 
         save.setOnClickListener {
             firebaseUser()
-            builder.setTitle("Thông báo")
-                .setMessage("Bạn có chắc chắn muốn thay đổi?")
+            builder.setTitle("NOTIFY")
+                .setMessage("Are you sure with changed profile?")
                 .setCancelable(true) // dialog box in cancellable
                 // set positive button
                 //take two parameters dialogInterface and an int
-                .setPositiveButton("Có"){dialogInterface,it ->
+                .setPositiveButton("Yes"){dialogInterface,it ->
                     profile()
                     val intent = Intent(this, Profile::class.java)
                     startActivity(intent)
                     finish()
                 }
-            builder.setNegativeButton("Không") { dialog, which ->
+            builder.setNegativeButton("no") { dialog, which ->
                 dialog.cancel()
             }
                 // show the builder
@@ -145,7 +145,7 @@ class Edit_Profile : AppCompatActivity() {
         val photoUrl: Uri? = users.photoUrl
         editname.setText(ename)
         editemail.setText(eemail)
-        Glide.with(this@Edit_Profile).load(photoUrl).error(R.drawable.img_2)
+        Glide.with(this@Edit_Profile).load(photoUrl).error(R.drawable.icon_app)
             .into(avatar)
         val userRef = FirebaseDatabase.getInstance().getReference("Users")
             .orderByChild("email")
@@ -157,7 +157,7 @@ class Edit_Profile : AppCompatActivity() {
                     if (user != null) {
                         editname.setText(user?.fullName)
                         editemail.setText(user?.email)
-                        Glide.with(this@Edit_Profile).load(user?.imageAvt).error(R.drawable.img_2)
+                        Glide.with(this@Edit_Profile).load(user?.imageAvt).error(R.drawable.icon_app)
                             .into(avatar)
                     }
                 }

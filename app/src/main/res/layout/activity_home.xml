@@ -22,7 +22,7 @@
             android:layout_marginEnd="35dp"
             android:layout_marginTop="75dp"
             android:layout_marginLeft="305dp"
-            android:src="@drawable/img_2"
+            android:src="@drawable/icon_app"
             app:civ_border_color="#2DDA93"
             app:civ_border_width="2dp" />
 
@@ -33,12 +33,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="75dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Hello Taylor,"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="73dp"
+            android:fontFamily="cursive"
+            android:text="Hello"
             android:textColor="@color/white"
-            android:textSize="21dp"
+            android:textSize="30dp"
             android:textStyle="bold" />
 
         <TextView
@@ -47,7 +47,7 @@
             android:layout_alignStart="@+id/tvname"
             android:layout_alignParentTop="true"
             android:layout_marginTop="110dp"
-            android:text="Let’s Learn More About Plants"
+            android:text="Have a good explore"
             android:textColor="@color/white"
             android:textSize="14dp" />
     </RelativeLayout>

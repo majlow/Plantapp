@@ -4,39 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/welcome2"
     tools:context=".onboarding.Firstscreen">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="285dp"
-        android:layout_height="265dp"
-        android:src="@drawable/f1"
-        android:layout_marginTop="40dp"
+        android:layout_width="287dp"
+        android:layout_height="234dp"
         android:layout_gravity="top|center"
-        />
+        android:layout_marginTop="40dp"
+        android:src="@drawable/giphy_1" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:fontFamily="serif"
-        android:layout_marginTop="30dp"
+        android:layout_height="287dp"
         android:layout_gravity="top|center"
-        android:text="Identify Plants"
-        android:textColor="#36455A"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="top"
+        android:text="RESEARCH NEW PLANTS"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="293dp"
-        android:layout_height="40dp"
+        android:layout_height="89dp"
+        android:layout_gravity="top|center"
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif"
-        android:layout_gravity="top|center"
         android:gravity="center"
         android:text="You can identify the plants you don't know through your camera"
-        android:textColor="#495566"
+        android:textColor="@color/white"
         android:textSize="15dp"
         android:textStyle="normal" />
 

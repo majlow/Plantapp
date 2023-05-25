@@ -132,7 +132,7 @@ class logIn : AppCompatActivity() {
                     val verification=auth.currentUser?.isEmailVerified
                     if(verification==true){
                         val intent=Intent(this,Home::class.java)
-                        Toast.makeText(baseContext, "Đăng nhập thành công!",
+                        Toast.makeText(baseContext, "Log in successful",
                             Toast.LENGTH_SHORT).show()
                         startActivity(intent)}
                     else{
@@ -143,10 +143,10 @@ class logIn : AppCompatActivity() {
                     try {
                         throw task.getException()!!;
                     } catch (e: FirebaseAuthInvalidUserException) {
-                        email.setError("Người dùng không tồn tại. Vui lòng đăng ký người dùng mới.");
+                        email.setError("The user not exists. Please create new account.");
                         email.requestFocus();
                     } catch (e: FirebaseAuthInvalidCredentialsException) {
-                        password.setError("Mật khẩu không đúng. vui lòng kiểm tra và nhập lại.");
+                        password.setError("The password not match.");
                         password.requestFocus();
                     } catch (e: Exception) {
                         Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT)
@@ -160,10 +160,10 @@ class logIn : AppCompatActivity() {
     private fun validateemail(): Boolean {
         val mail= email.text.toString().trim()
         return if (mail.isEmpty()) {
-            email.setError("Email không được để trống")
+            email.setError("Email not empty")
             false
         }else if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
-            email.setError("Địa chỉ email không hợp lệ!")
+            email.setError("Email address invalid.")
             false
         }
         else
@@ -175,7 +175,7 @@ class logIn : AppCompatActivity() {
     private fun validatePassword(): Boolean {
         val pass= password.text.toString().trim()
         return if (pass.isEmpty()) {
-            password.setError("Password không được để trống")
+            password.setError("Password not empty")
             false
         }
         else
@@ -195,7 +195,7 @@ class logIn : AppCompatActivity() {
                     if(task.isSuccessful){
 
                         val intent  = Intent(this,Home::class.java)
-                        Toast.makeText(this,"Đăng nhập bằng Google thành công!",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"Log in with Google account successful.",Toast.LENGTH_SHORT).show()
                         startActivity(intent)
 
                     }else{
