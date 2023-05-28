@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "282408001100",
-    "project_id": "plantapp-889e1",
-    "storage_bucket": "plantapp-889e1.appspot.com"
+    "project_number": "299034202761",
+    "project_id": "plantsapp-cd691",
+    "storage_bucket": "plantsapp-cd691.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:282408001100:android:6daa7cd33ea72488961ee9",
+        "mobilesdk_app_id": "1:299034202761:android:736890a94f43b6750dec58",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "282408001100-p6847eg66djrohdapi4p1ab33le33kp7.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.myapplication",
-            "certificate_hash": "88a007fd774c244b3d93b570ecaf8ca36790044a"
-          }
-        },
-        {
-          "client_id": "282408001100-gt86ipp15bidfkaunr26g49237ahou49.apps.googleusercontent.com",
+          "client_id": "299034202761-hgbkmsuluuee87itf9bb6kiqbqnb7ru1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBGLYQK5mM_bgaIplpaAULNIAMgmn6BhHc"
+          "current_key": "AIzaSyCqoIXxNFjvRE6joHo0FtcmS6NnS0phC3Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "282408001100-gt86ipp15bidfkaunr26g49237ahou49.apps.googleusercontent.com",
+              "client_id": "299034202761-hgbkmsuluuee87itf9bb6kiqbqnb7ru1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

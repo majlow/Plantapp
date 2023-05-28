@@ -123,7 +123,7 @@ class signUp : AppCompatActivity() {
         // Pattern password compare
         val passInput= password.text.toString().trim()
 
-        val passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&+=])(?=\\\\S+\$).{11,}\$".toRegex()
+        val passwordPattern = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{11,20})".toRegex()
 
         return if (passInput.isEmpty()) {
             password.setError("Password not empty!")
