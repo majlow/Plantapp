@@ -64,19 +64,25 @@ class forGotPassWord : AppCompatActivity() {
         }
 
     }
-        private fun validateemail(): Boolean {
-            val mail= email.text.toString().trim()
-            return if (mail.isEmpty()) {
-                email.setError("Email not empty.")
-                false
-            }else if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
-                email.setError("Invalid email address.")
-                false
-            }
-            else
-            {
-                email.setError(null)
-                true
-            }
+    private fun validateemail(): Boolean {
+        val mail= email.text.toString().trim()
+        return if (mail.isEmpty()) {
+            email.setError("Email not empty.")
+            false
+        }else if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
+            email.setError("Invalid email address.")
+            false
         }
+        else
+        {
+            email.setError(null)
+            true
+        }
+    }
+
+    override fun onBackPressed() {
+        val previousIntent = Intent(this, logIn::class.java)
+        startActivity(previousIntent)
+    }
+
 }

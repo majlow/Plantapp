@@ -14,10 +14,6 @@ import com.bumptech.glide.Glide
 import com.example.myapplication.Adapter.articlesAdapter
 import com.example.myapplication.Adapter.phoToAdapter
 import com.example.myapplication.Adapter.plantTypeAdapter
-import com.example.myapplication.model.articlesData
-import com.example.myapplication.model.phoToData
-import com.example.myapplication.model.plantTypeData
-import com.example.myapplication.model.userData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -27,7 +23,14 @@ import de.hdodenhof.circleimageview.CircleImageView
 import java.io.ByteArrayOutputStream
 import java.util.*
 import kotlin.collections.ArrayList
-
+import android.widget.SearchView
+import android.widget.Toast
+import com.example.myapplication.Adapter.listSpeciesAdapter
+import com.example.myapplication.model.listSpeciesData
+import com.example.myapplication.model.*
+import android.os.Handler
+import android.os.Looper
+import kotlin.system.exitProcess
 
 class Home : AppCompatActivity() {
     private lateinit var dbref : DatabaseReference
@@ -35,6 +38,10 @@ class Home : AppCompatActivity() {
     private lateinit var Recyclerview1 : RecyclerView
     private lateinit var arrayList : ArrayList<plantTypeData>
     private lateinit var arrayList1 : ArrayList<phoToData>
+    private lateinit var searchView: SearchView
+    private lateinit var userArrayList : ArrayList<listSpeciesData>
+    private var backButtonPressedTime: Long = 0
+    private val backButtonThreshold: Long = 2000 // 2 seconds
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -43,7 +50,16 @@ class Home : AppCompatActivity() {
         val specie= findViewById<Button>(R.id.specise)
         val btnprofile=findViewById<CircleImageView>(R.id.profile_image)
         val addingnew=findViewById<Button>(R.id.adding_new)
-
+        searchView = findViewById(R.id.searchView)
+        searchView.clearFocus()
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+            override fun onQueryTextChange(newText: String): Boolean {
+                return true
+            }
+        })
         addingnew.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(intent, 1)
@@ -234,6 +250,17 @@ class Home : AppCompatActivity() {
                     finish()
                 }
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        if (backButtonPressedTime + backButtonThreshold > System.currentTimeMillis()) {
+            // Double-press detected, exit the app
+            super.onBackPressed()
+            exitProcess(0) // Terminate the app process
+        } else {
+            Toast.makeText(this, "Press BACK again to exit", Toast.LENGTH_SHORT).show()
+            backButtonPressedTime = System.currentTimeMillis()
         }
     }
 

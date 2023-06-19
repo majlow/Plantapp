@@ -119,4 +119,9 @@ class listSpecies : AppCompatActivity() {
         startActivity(Intent(this, species::class.java))
         finish()
     }
+
+    override fun onBackPressed() {
+        val previousIntent = Intent(this, species::class.java)
+        startActivity(previousIntent)
+    }
 }

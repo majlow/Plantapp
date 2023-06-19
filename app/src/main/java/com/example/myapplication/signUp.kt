@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.Patterns
@@ -16,7 +17,8 @@ import com.google.firebase.database.FirebaseDatabase
 import java.util.*
 import kotlin.random.Random.Default.nextInt
 import kotlin.random.Random
-
+import kotlin.system.exitProcess
+import android.widget.Toast
 class signUp : AppCompatActivity() {
 
     private lateinit var sEmail: String
@@ -28,6 +30,8 @@ class signUp : AppCompatActivity() {
     private lateinit var name: EditText
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
+    private var backButtonPressedTime: Long = 0
+    private val backButtonThreshold: Long = 2000 // 2 seconds
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -159,4 +163,16 @@ class signUp : AppCompatActivity() {
             true
         }
     }
+
+    override fun onBackPressed() {
+        if (backButtonPressedTime + backButtonThreshold > System.currentTimeMillis()) {
+            // Double-press detected, exit the app
+            super.onBackPressed()
+            exitProcess(0) // Terminate the app process
+        } else {
+            Toast.makeText(this, "Press BACK again to exit", Toast.LENGTH_SHORT).show()
+            backButtonPressedTime = System.currentTimeMillis()
+        }
+    }
+
 }

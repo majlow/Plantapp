@@ -8,10 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import com.example.myapplication.model.userData
@@ -201,5 +198,9 @@ class Edit_Profile : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        val previousIntent = Intent(this, Profile::class.java)
+        startActivity(previousIntent)
+    }
 
 }

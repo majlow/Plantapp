@@ -8,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -53,5 +54,9 @@ class splashScreen : AppCompatActivity() {
             startActivity(intent)
         }
         finish()
+    }
+
+    override fun onBackPressed() {
+        Toast.makeText(this@splashScreen,"Not use BACK navigation", Toast.LENGTH_SHORT).show()
     }
 }

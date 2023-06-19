@@ -67,12 +67,12 @@ class addingNew : AppCompatActivity() {
                                 override fun onItemLongClick(view: View?, position: Int) {
                                     // Show dialog to confirm deleting the selected image
                                     val builder = AlertDialog.Builder(this@addingNew)
-                                    builder.setTitle("Xác nhận xóa")
-                                        .setMessage("Bạn chắc chắn muốn xóa ảnh này?")
+                                    builder.setTitle("Confirm to delete picture")
+                                        .setMessage("Are you sure delete this photo?")
                                         .setCancelable(true) // dialog box in cancellable
                                         // set positive button
                                         //take two parameters dialogInterface and an int
-                                        .setPositiveButton("Có"){dialogInterface,it ->
+                                        .setPositiveButton("YES"){dialogInterface,it ->
                                             val selectedImage = imagesList[position]
                                             val imageRef = FirebaseStorage.getInstance().getReferenceFromUrl(selectedImage.url)
                                             imageRef.delete()
@@ -80,14 +80,14 @@ class addingNew : AppCompatActivity() {
                                                     // If deleting the image is successful, remove the corresponding item from RecyclerView and update it
                                                     imagesList.removeAt(position)
                                                     adapter.notifyItemRemoved(position)
-                                                    Toast.makeText(this@addingNew, "Đã xóa ảnh", Toast.LENGTH_SHORT).show()
+                                                    Toast.makeText(this@addingNew, "Deleted", Toast.LENGTH_SHORT).show()
                                                 }
                                                 .addOnFailureListener {
                                                     // If deleting the image fails, show error message
-                                                    Toast.makeText(this@addingNew, "Lỗi khi xóa ảnh", Toast.LENGTH_SHORT).show()
+                                                    Toast.makeText(this@addingNew, "Some wrong here!", Toast.LENGTH_SHORT).show()
                                                 }
                                         }
-                                    builder.setNegativeButton("Không") { dialog, which ->
+                                    builder.setNegativeButton("NO") { dialog, which ->
                                         dialog.cancel()
                                     }
                                         // show the builder
@@ -108,5 +108,10 @@ class addingNew : AppCompatActivity() {
     fun prev(view: View?){
         startActivity(Intent(this, Home::class.java))
         finish()
+    }
+
+    override fun onBackPressed() {
+        val previousIntent = Intent(this, Home::class.java)
+        startActivity(previousIntent)
     }
 }

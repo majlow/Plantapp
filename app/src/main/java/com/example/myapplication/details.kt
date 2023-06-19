@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -135,6 +136,11 @@ class details : AppCompatActivity() {
     fun prev(view: View?){
         startActivity(Intent(this, species::class.java))
         finish()
+    }
+
+    override fun onBackPressed() {
+        val previousIntent = Intent(this, Home::class.java)
+        startActivity(previousIntent)
     }
 }
 

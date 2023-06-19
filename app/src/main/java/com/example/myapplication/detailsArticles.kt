@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import com.example.myapplication.Adapter.listSpeciesAdapter
@@ -177,5 +178,10 @@ class detailsArticles : AppCompatActivity() {
     fun prev(view: View?){
         startActivity(Intent(this, articles::class.java))
         finish()
+    }
+
+    override fun onBackPressed() {
+        val previousIntent = Intent(this, articles::class.java)
+        startActivity(previousIntent)
     }
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.Adapter.speciesAdapter
@@ -104,5 +105,10 @@ class species : AppCompatActivity() {
     fun prev(view: View?){
         startActivity(Intent(this, Home::class.java))
         finish()
+    }
+
+    override fun onBackPressed() {
+        val previousIntent = Intent(this, Home::class.java)
+        startActivity(previousIntent)
     }
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -144,4 +145,7 @@ class Profile : AppCompatActivity() {
         })
     }
 
+    override fun onBackPressed() {
+        Toast.makeText(this@Profile,"Not use BACK navigation", Toast.LENGTH_SHORT).show()
+    }
 }

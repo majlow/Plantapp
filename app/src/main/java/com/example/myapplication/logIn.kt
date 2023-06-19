@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
@@ -26,6 +27,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlin.system.exitProcess
 
 class logIn : AppCompatActivity() {
 
@@ -37,6 +39,8 @@ class logIn : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var auth: FirebaseAuth
     private lateinit var client: GoogleSignInClient
+    private var backButtonPressedTime: Long = 0
+    private val backButtonThreshold: Long = 2000 // 2 seconds
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
@@ -206,6 +210,14 @@ class logIn : AppCompatActivity() {
         }
     }
 
-
-
+    override fun onBackPressed() {
+        if (backButtonPressedTime + backButtonThreshold > System.currentTimeMillis()) {
+            // Double-press detected, exit the app
+            super.onBackPressed()
+            exitProcess(0) // Terminate the app process
+        } else {
+            Toast.makeText(this, "Press BACK again to exit", Toast.LENGTH_SHORT).show()
+            backButtonPressedTime = System.currentTimeMillis()
+        }
+    }
 }

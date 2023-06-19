@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#33C8C1C1"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".Profile">
 
@@ -20,7 +20,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="400dp"
             android:background="#FBFDFF">
 
             <RelativeLayout
@@ -117,8 +117,8 @@
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPager2"
-                android:layout_width="382dp"
-                android:layout_height="335dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -169,7 +169,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        android:background="#33C8C1C1"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -197,15 +197,7 @@
                 />
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_add"
-            app:backgroundTint="#48A2F5"
-            app:layout_anchor="@id/bottomAppBar"
-            app:tint="@color/white" />
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
