@@ -62,12 +62,12 @@ class onBoarding : AppCompatActivity() {
         if(viewpager.getCurrentItem()<2) {
             viewpager.setCurrentItem(viewpager.getCurrentItem() + 1)
         }else{
-            val intent = Intent(this, logIn::class.java)
+            val intent = Intent(this, Register_SignIn::class.java)
             startActivity(intent)
         }
         }
         signin.setOnClickListener{
-            val intent = Intent(this, logIn::class.java)
+            val intent = Intent(this, Register_SignIn::class.java)
             startActivity(intent)
         }
 

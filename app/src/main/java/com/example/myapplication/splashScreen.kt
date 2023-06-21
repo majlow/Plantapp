@@ -6,8 +6,6 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -47,7 +45,7 @@ class splashScreen : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         if (user == null) {
             //not login
-            val intent = Intent(this, logIn::class.java)
+            val intent = Intent(this, Register_SignIn::class.java)
             startActivity(intent)
         } else {
             val intent = Intent(this, Home::class.java)

@@ -6,18 +6,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
-import com.example.myapplication.Adapter.listSpeciesAdapter
 import com.example.myapplication.model.articlesData
-import com.example.myapplication.model.listSpeciesData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import de.hdodenhof.circleimageview.CircleImageView
-import java.util.*
 
 class detailsArticles : AppCompatActivity() {
     var tim:Int=0
@@ -176,12 +172,12 @@ class detailsArticles : AppCompatActivity() {
     }
 
     fun prev(view: View?){
-        startActivity(Intent(this, articles::class.java))
+        startActivity(Intent(this, Home_Articles::class.java))
         finish()
     }
 
     override fun onBackPressed() {
-        val previousIntent = Intent(this, articles::class.java)
+        val previousIntent = Intent(this, Home_Articles::class.java)
         startActivity(previousIntent)
     }
 }

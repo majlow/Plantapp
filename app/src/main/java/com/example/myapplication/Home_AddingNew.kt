@@ -11,11 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.Adapter.ImageAdapter
 import com.example.myapplication.model.ImageData
 import com.google.firebase.storage.FirebaseStorage
-import com.example.myapplication.RecyclerItemClickListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 
-class addingNew : AppCompatActivity() {
+class Home_AddingNew : AppCompatActivity() {
     private lateinit var recyclerView : RecyclerView
     private lateinit var storage: FirebaseStorage
 
@@ -66,7 +64,7 @@ class addingNew : AppCompatActivity() {
                             object : RecyclerItemClickListener.OnItemClickListener {
                                 override fun onItemLongClick(view: View?, position: Int) {
                                     // Show dialog to confirm deleting the selected image
-                                    val builder = AlertDialog.Builder(this@addingNew)
+                                    val builder = AlertDialog.Builder(this@Home_AddingNew)
                                     builder.setTitle("Confirm to delete picture")
                                         .setMessage("Are you sure delete this photo?")
                                         .setCancelable(true) // dialog box in cancellable
@@ -80,11 +78,11 @@ class addingNew : AppCompatActivity() {
                                                     // If deleting the image is successful, remove the corresponding item from RecyclerView and update it
                                                     imagesList.removeAt(position)
                                                     adapter.notifyItemRemoved(position)
-                                                    Toast.makeText(this@addingNew, "Deleted", Toast.LENGTH_SHORT).show()
+                                                    Toast.makeText(this@Home_AddingNew, "Deleted", Toast.LENGTH_SHORT).show()
                                                 }
                                                 .addOnFailureListener {
                                                     // If deleting the image fails, show error message
-                                                    Toast.makeText(this@addingNew, "Some wrong here!", Toast.LENGTH_SHORT).show()
+                                                    Toast.makeText(this@Home_AddingNew, "Some wrong here!", Toast.LENGTH_SHORT).show()
                                                 }
                                         }
                                     builder.setNegativeButton("NO") { dialog, which ->

@@ -1,23 +1,15 @@
 package com.example.myapplication
 
 import android.app.ProgressDialog
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
-import android.util.Log
 import android.util.Patterns
-import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -29,7 +21,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlin.system.exitProcess
 
-class logIn : AppCompatActivity() {
+class Register_SignIn : AppCompatActivity() {
 
     private lateinit var sharedPreferences:SharedPreferences
     private val FILE_EMAIL="myFile"
@@ -91,13 +83,13 @@ class logIn : AppCompatActivity() {
             }
         }
         signup.setOnClickListener{
-            val intent=Intent(this,signUp::class.java)
+            val intent=Intent(this,Register_SignUp::class.java)
             startActivity(intent)
         }
 
 
         forGot.setOnClickListener{
-            val intent=Intent(this,forGotPassWord::class.java)
+            val intent=Intent(this,Register_ForgotPassword::class.java)
             startActivity(intent)
         }
         val  options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

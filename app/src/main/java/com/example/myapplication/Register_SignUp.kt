@@ -4,22 +4,15 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
-import android.util.Patterns
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.model.userData
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import java.util.*
 import kotlin.random.Random.Default.nextInt
-import kotlin.random.Random
 import kotlin.system.exitProcess
 import android.widget.Toast
-class signUp : AppCompatActivity() {
+class Register_SignUp : AppCompatActivity() {
 
     private lateinit var sEmail: String
     private lateinit var sPassword: String
@@ -45,7 +38,7 @@ class signUp : AppCompatActivity() {
         password= findViewById<EditText>(R.id.password)
 
         signin.setOnClickListener{
-            val intent=Intent(this,logIn::class.java)
+            val intent=Intent(this,Register_SignIn::class.java)
             startActivity(intent)
         }
         sginup.setOnClickListener {
@@ -72,7 +65,7 @@ class signUp : AppCompatActivity() {
                                         this, "The email verify was sent to you.",
                                         Toast.LENGTH_SHORT
                                     ).show()
-                                    val intent = Intent(this, logIn::class.java)
+                                    val intent = Intent(this, Register_SignIn::class.java)
                                     startActivity(intent)
                                 }
                                 ?.addOnFailureListener {

@@ -103,7 +103,7 @@ class listSpecies : AppCompatActivity() {
         })
 
     }
-    private fun searchList(text: String) {
+    public fun searchList(text: String) {
         val searchList = java.util.ArrayList<listSpeciesData>()
         for (speciesdata in userArrayList) {
             if (speciesdata.namespecies?.lowercase()
@@ -116,12 +116,12 @@ class listSpecies : AppCompatActivity() {
 
     }
     fun prev(view: View?){
-        startActivity(Intent(this, species::class.java))
+        startActivity(Intent(this, Home_Species::class.java))
         finish()
     }
 
     override fun onBackPressed() {
-        val previousIntent = Intent(this, species::class.java)
+        val previousIntent = Intent(this, Home_Species::class.java)
         startActivity(previousIntent)
     }
 }

@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.listSpecies
 import com.example.myapplication.model.speciesData
-import com.example.myapplication.species
+import com.example.myapplication.Home_Species
 
-class speciesAdapter(userList1: species, private var userList: ArrayList<speciesData>) : RecyclerView.Adapter<speciesAdapter.MyViewHolder>() {
+class speciesAdapter(userList1: Home_Species, private var userList: ArrayList<speciesData>) : RecyclerView.Adapter<speciesAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

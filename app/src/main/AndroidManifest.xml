@@ -16,7 +16,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".addingNew"
+            android:name=".Home_AddingNew"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -44,7 +44,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".articles"
+            android:name=".Home_Articles"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -72,7 +72,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".species"
+            android:name=".Home_Species"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -86,21 +86,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".logIn"
+            android:name=".Register_SignIn"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".forGotPassWord"
+            android:name=".Register_ForgotPassword"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".signUp"
+            android:name=".Register_SignUp"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

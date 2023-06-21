@@ -3,11 +3,9 @@ package com.example.myapplication
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -102,7 +100,7 @@ class Profile : AppCompatActivity() {
             .setPositiveButton("Yes"){dialogInterface,it ->
                 FirebaseAuth.getInstance().signOut()
 
-                val intent = Intent(this, logIn::class.java)
+                val intent = Intent(this, Register_SignIn::class.java)
                 startActivity(intent)
                 finish()
             }
@@ -135,7 +133,7 @@ class Profile : AppCompatActivity() {
                     if (user != null) {
                         tvname.text = user?.fullName
                         tvemail.text = user?.email
-                        Glide.with(this@Profile).load(user?.imageAvt).error(R.drawable.img_2)
+                        Glide.with(this@Profile).load(user?.imageAvt).error(R.drawable.icon_app)
                             .into(image)
                     }
                 }
@@ -146,6 +144,7 @@ class Profile : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        Toast.makeText(this@Profile,"Not use BACK navigation", Toast.LENGTH_SHORT).show()
+        val previousIntent = Intent(this, Home::class.java)
+        startActivity(previousIntent)
     }
 }

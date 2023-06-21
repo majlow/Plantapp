@@ -1,10 +1,8 @@
 package com.example.myapplication
 
-import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -13,7 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 
-class forGotPassWord : AppCompatActivity() {
+class Register_ForgotPassword : AppCompatActivity() {
 
     private lateinit var sEmail: String
     private lateinit var email: EditText
@@ -30,7 +28,7 @@ class forGotPassWord : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         signup.setOnClickListener{
-            val intent=Intent(this,signUp::class.java)
+            val intent=Intent(this,Register_SignUp::class.java)
             startActivity(intent)
         }
 
@@ -47,7 +45,7 @@ class forGotPassWord : AppCompatActivity() {
                             // set positive button
                             //take two parameters dialogInterface and an int
                             .setPositiveButton("Confirm"){dialogInterface,it ->
-                                val intent = Intent(this, logIn::class.java)
+                                val intent = Intent(this, Register_SignIn::class.java)
                                 startActivity(intent)
                                 finish() // close the app when yes clicked
                             }
@@ -81,7 +79,7 @@ class forGotPassWord : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val previousIntent = Intent(this, logIn::class.java)
+        val previousIntent = Intent(this, Register_SignIn::class.java)
         startActivity(previousIntent)
     }
 
