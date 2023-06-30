@@ -25,6 +25,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import com.example.myapplication.model.listSpeciesData
 import com.example.myapplication.model.*
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlin.system.exitProcess
 
 class Home : AppCompatActivity() {
@@ -45,6 +46,7 @@ class Home : AppCompatActivity() {
         val specie= findViewById<Button>(R.id.specise)
         val btnprofile=findViewById<CircleImageView>(R.id.profile_image)
         val addingnew=findViewById<Button>(R.id.adding_new)
+        val fab=findViewById<FloatingActionButton>(R.id.fab)
         searchView = findViewById(R.id.searchView)
         searchView.clearFocus()
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -59,6 +61,9 @@ class Home : AppCompatActivity() {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(intent, 1)
         }
+        fab.setOnClickListener {
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, 1)}
 
         profile()
         btnprofile.setOnClickListener{
